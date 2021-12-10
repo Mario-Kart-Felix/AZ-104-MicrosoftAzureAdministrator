@@ -20,6 +20,10 @@ In this lab, you will:
 
 ## Estimated timing: 20 minutes
 
+## Architecture diagram
+
+![image](../media/lab03b.png)
+
 ## Instructions
 
 ### Exercise 1
@@ -44,6 +48,10 @@ In this task, you will create an Azure disk resource by using an Azure Resource 
 
 1. Click **Download** and save the compressed file containing the template and parameters files to the **Downloads** folder on your lab computer.
 
+1. On the **Microsoft.ManagedDisk-*XXXXXXXXX* \| Template** blade, click **Inputs**.
+
+1. Note the value of the **location** parameter. You will need it in the next task.
+
 1. Extract the content of the downloaded file into the **Downloads** folder on your lab computer.
 
     >**Note**: These files are also available as **\\Allfiles\\Labs\\03\\az104-03b-md-template.json** and **\\Allfiles\\Labs\\03\\az104-03b-md-parameters.json**
@@ -53,6 +61,8 @@ In this task, you will create an Azure disk resource by using an Azure Resource 
 #### Task 2: Create an Azure managed disk by using an ARM template
 
 1. In the Azure portal, search for and select **Deploy a custom template**.
+
+1. Click **Template deployment (deploy using custom templates)** found under the **Marketplace** group.
 
 1. On the **Custom deployment** blade, click **Build your own template in the editor**.
 
@@ -99,7 +109,7 @@ In this task, you will create an Azure disk resource by using an Azure Resource 
     | Resource Group | the name of a **new** resource group **az104-03b-rg1** |
     | Region | the name of any Azure region available in the subscription you are using in this lab |
     | Disk Name | **az104-03b-disk1** |
-    | Location | *accept the default value* |
+    | Location | the value of the location parameter you noted in the previous task |
     | Sku | **Standard_LRS** |
     | Disk Size Gb | **32** |
     | Create Option | **empty** |
