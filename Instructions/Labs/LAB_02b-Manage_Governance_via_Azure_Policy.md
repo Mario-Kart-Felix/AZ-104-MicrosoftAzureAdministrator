@@ -61,7 +61,7 @@ In this task, you will create and assign a tag to an Azure resource group via th
 
     **Note**: note what resource group the storage account is in, you'll need it later in the lab.
 
-1. On the resource group blade, click **Tags**.
+1. On the resource group blade, click Click **edit** next to **Tags** to create new tags.
 
 1. Create a tag with the following settings and Apply your change:
 
@@ -122,7 +122,7 @@ In this task, you will assign the built-in *Require a tag and its value on resou
 
 1. Navigate back to the blade of the resource group hosting the storage account used for the Cloud Shell home drive, which you identified in the previous task.
 
-1. On the resource group blade, click **+ Create** and then search for Storage Account, and click **+Create**. 
+1. On the resource group blade, click **+ Create** and then search for **Storage Account**, and click **+ Create**. 
 
 1. On the **Basics** tab of the **Create storage account** blade, verify that you are using the Resource Group that the Policy was applied to and specify the following settings (leave others with their defaults), click **Review + create** and then click **Create**:
 
@@ -134,7 +134,7 @@ In this task, you will assign the built-in *Require a tag and its value on resou
 
     >**Note**: Verify whether the error message states that the resource deployment was disallowed by the policy. 
 
-    >**Note**: By clicking the **Raw Error** tab, you can find more details about the error, including the name of the role definition **Require Role tag with Infra value**. The deployment failed because the storage account you attempted to create did not have a tag named **Role** with its value set to **Infra**.
+    >**Note**: By clicking the **Tags** tab, you can find more details about the error, including the name of the role definition **Require Role tag with Infra value**. The deployment failed because the storage account you attempted to create did not have a tag named **Role** with its value set to **Infra**.
 
 #### Task 3: Apply tagging via an Azure policy
 
@@ -186,7 +186,7 @@ In this task, we will use a different policy definition to remediate any non-com
 
 1. Navigate back to the blade of the resource group hosting the storage account used for the Cloud Shell home drive, which you identified in the first task.
 
-1. On the resource group blade, click **+ Create** and then search for Storage Account, and click **+Create**. 
+1. On the resource group blade, click **+ Create** and then search for **Storage Account**, and click **+ Create**. 
 
 1. On the **Basics** tab of the **Create storage account** blade, verify that you are using the Resource Group that the Policy was applied to and specify the following settings (leave others with their defaults) and click **Review + create**:
 
@@ -200,9 +200,9 @@ In this task, we will use a different policy definition to remediate any non-com
 
 #### Task 4: Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. 
-
-   >**Note**: Removing unused resources ensures you will not see unexpected charges, although keep in mind that Azure policies do not incur extra cost.
+   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although keep in mind that Azure policies do not incur extra cost.
+   
+   >**Note**:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. In the portal, search for and select **Policy**.
 
@@ -212,9 +212,7 @@ In this task, we will use a different policy definition to remediate any non-com
 
 1. In the list of storage accounts, select the resource group corresponding to the storage account you created in the last task of this lab. Select **Tags** and click **Delete** (Trash can to the right) to the **Role:Infra** tag and press **Apply**. 
 
-1. In the portal, again search for and select **Storage accounts** or use the menu at the top to select **Storage accounts**
-
-1. In the list of storage accounts, select the storage account you created in the last task of this lab, click **Delete**, when prompted for the confirmation, in the **Confirm delete** type **yes** and click **Delete**. 
+1. Click **Overview** and click **Delete** on the top of the storage account blade. When prompted for the confirmation, in the **Delete storage account** blade, type the name of the storage account to confirm and click **Delete**. 
 
 #### Review
 

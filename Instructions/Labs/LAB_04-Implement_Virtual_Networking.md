@@ -96,7 +96,9 @@ In this task, you will deploy Azure virtual machines into different subnets of t
 
     >**Note**: You might need to upload each file separately.
 
-1. From the Cloud Shell pane, run the following to deploy two virtual machines by using the template and parameter files you uploaded:
+1. Edit the Parameters file, and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
+
+1. From the Cloud Shell pane, run the following to deploy two virtual machines by using the template and parameter files:
 
    ```powershell
    $rgName = 'az104-04-rg1'
@@ -186,6 +188,10 @@ In this task, you will configure network security groups in order to allow for r
 
     >**Note**: This is expected, because public IP addresses of the Standard SKU, by default, require that the network interfaces to which they are assigned are protected by a network security group. In order to allow Remote Desktop connections, you will create a network security group explicitly allowing inbound RDP traffic from Internet and assign it to network interfaces of both virtual machines.
 
+1. Stop the **az104-04-vm0** and **az104-04-vm1** virtual machines.
+
+    >**Note**: This is done for lab expediency. If the virtual machines are running when a network security group is attached to their network interface, it can can take over 30 minutes for the attachment to take effect. Once the network security group has been created and attached, the virtual machines will be restarted, and the attachment will be in effect immediately.
+
 1. In the Azure portal, search for and select **Network security groups**, and, on the **Network security groups** blade, click **+ Create**.
 
 1. Create a network security group with the following settings (leave others with their default values):
@@ -223,9 +229,11 @@ In this task, you will configure network security groups in order to allow for r
 
     >**Note**: It may take up to 5 minutes for the rules from the newly created Network Security Group to be applied to the Network Interface Card.
 
+1. Start the **az104-04-vm0** and **az104-04-vm1** virtual machines.
+
 1. Navigate back to the **az104-04-vm0** virtual machine blade.
 
-    >**Note**: In the subsequent steps, you will verify that you can successfully connect to the target virtual machine and sign in by using the **Student** username and **Pa55w.rd1234** password.
+    >**Note**: In the subsequent steps, you will verify that you can successfully connect to the target virtual machine.
 
 1. On the **az104-04-vm0** blade, click **Connect**, click **RDP**, on the **Connect with RDP** blade, click **Download RDP File** using the Public IP address and follow the prompts to start the Remote Desktop session.
 
@@ -233,7 +241,7 @@ In this task, you will configure network security groups in order to allow for r
 
     >**Note**: You can ignore any warning prompts when connecting to the target virtual machines.
 
-1. When prompted, sign in by using the **Student** username and **Pa55w.rd1234** password.
+1. When prompted, sign in with the user and password in the parameters file.
 
     >**Note**: Leave the Remote Desktop session open. You will need it in the next task.
 
@@ -251,7 +259,7 @@ In this task, you will configure DNS name resolution within a virtual network by
     | Resource Group | **az104-04-rg1** |
     | Name | **contoso.org** |
 
-1. Click Review and Create. Let validation occur, and hit Create again to submit your deployment.
+1. Click **Review and Create**. Let validation occur, and hit **Create** again to submit your deployment.
 
     >**Note**: Wait for the private DNS zone to be created. This should take about 2 minutes.
 
@@ -307,7 +315,7 @@ In this task, you will configure external DNS name resolution by using Azure pub
     | Resource Group | **az104-04-rg1** |
     | Name | the DNS domain name you identified earlier in this task |
 
-1. Click Review and Create. Let validation occur, and hit Create again to submit your deployment.
+1. Click **Review and Create**. Let validation occur, and hit **Create** again to submit your deployment.
 
     >**Note**: Wait for the DNS zone to be created. This should take about 2 minutes.
 
@@ -365,7 +373,9 @@ In this task, you will configure external DNS name resolution by using Azure pub
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+ > **Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+
+ > **Note**:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
 

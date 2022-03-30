@@ -46,7 +46,8 @@ In this lab, you will:
 
 In this task, you will create and configure management groups. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the Azure portal:
+```https://portal.azure.com```
 
 1. Search for and select **Management groups** to navigate to the **Management groups** blade.
 
@@ -135,13 +136,13 @@ In this task, you will create an Azure Active Directory user, assign the RBAC ro
     | User name | **az104-02-aaduser1**|
     | Name | **az104-02-aaduser1**|
     | Let me create the password | enabled |
-    | Initial password | **Pa55w.rd1234** |
+    | Initial password | **Provide a secure password** |
 
     >**Note**: **Copy to clipboard** the full **User name**. You will need it later in this lab.
 
 1. In the Azure portal, navigate back to the **az104-02-mg1** management group and display its **details**.
 
-1. Click **Access control (IAM)**, click **+ Add** followed by **Role assignment**, and assign the **Support Request Contributor (Custom)** role to the newly created user account.
+1. Click **Access control (IAM)**, click **+ Add** followed by **Add role assignment**, and assign the **Support Request Contributor (Custom)** role to the newly created user account.
 
 1. Open an **InPrivate** browser window and sign in to the [Azure portal](https://portal.azure.com) using the newly created user account. When prompted to update the password, change the password for the user.
 
@@ -161,11 +162,11 @@ In this task, you will create an Azure Active Directory user, assign the RBAC ro
 
 1. Do not continue with creating the support request. Instead, sign out as the az104-02-aaduser1 user from the Azure portal and close the InPrivate browser window.
 
-#### Clean up resources
+#### Task 4: Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. 
+   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although, resources created in this lab do not incur extra cost.
 
-   >**Note**: Removing unused resources ensures you will not see unexpected charges, although, resources created in this lab do not incur extra cost.
+   >**Note**: Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going.
 
 1. In the Azure portal, search for and select **Azure Active Directory**, on the Azure Active Directory blade, click **Users**.
 

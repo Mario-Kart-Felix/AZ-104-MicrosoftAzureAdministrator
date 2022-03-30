@@ -47,6 +47,8 @@ In this task, you will deploy an Azure virtual machine that you will use later i
 
 1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** and **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** into the Cloud Shell home directory.
 
+1. Edit the **Parameters** file you just uploaded and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
+
 1. From the Cloud Shell pane, run the following to create the resource group that will be hosting the virtual machine (replace the '[Azure_region]' placeholder with the name of an Azure region where you intend to deploy the Azure virtual machine)
 
     >**Note**: To list the names of Azure regions, run `(Get-AzLocation).Location`
@@ -91,7 +93,7 @@ In this task, you will create and configure an Azure Storage account.
     | Subscription | the name of the Azure subscription you are using in this lab |
     | Resource group | the name of a **new** resource group **az104-07-rg1** |
     | Storage account name | any globally unique name between 3 and 24 in length consisting of letters and digits |
-    | Location | the name of an Azure region where you can create an Azure Storage account  |
+    | Region | the name of an Azure region where you can create an Azure Storage account  |
     | Performance | **Standard** |
     | Redundancy | **Geo-redundant storage (GRS)** |
 
@@ -203,7 +205,7 @@ In this task, you will configure authentication and authorization for Azure Stor
 
 1. On the **az104-07-container** blade, click **Access Control (IAM)**.
 
-1. In the **Add** section, click **Add a role assignment**.
+1. On the **Check access** tab, click **Add role assignment**.
 
 1. On the **Add role assignment** blade, specify the following settings:
 
@@ -213,7 +215,7 @@ In this task, you will configure authentication and authorization for Azure Stor
     | Assign access to | **User, group, or service principal** |
     | Members | the name of your user account |
 
-1. Click 'Review+Assign' and then 'Review+ assign', and return to the **Overview** blade of the **az104-07-container** container and verify that you can change the Authentication method to (Switch to Azure AD User Account).
+1. Click **Review + Assign** and then **Review + assign**, and return to the **Overview** blade of the **az104-07-container** container and verify that you can change the Authentication method to (Switch to Azure AD User Account).
 
     > **Note**: It might take about 5 minutes for the change to take effect.
 
@@ -277,7 +279,7 @@ In this task, you will configure network access for Azure Storage.
 
     > **Note**: This is expected, since you are connecting from your client IP address.
 
-1. Close the InPrivate mode browser window, return to the browser window showing the **licenses/LICENSE** blade of the Azure Storage container.
+1. Close the InPrivate mode browser window, return to the browser window showing the **Networking** blade of the Azure Storage account.
 
 1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
@@ -296,7 +298,9 @@ In this task, you will configure network access for Azure Storage.
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+
+>**Note**:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a long time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. You might also try to delete the Resource Group where the resources reside. That is a quick Administrator shortcut. If you have concerns speak to your instructor.
 
 1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
 

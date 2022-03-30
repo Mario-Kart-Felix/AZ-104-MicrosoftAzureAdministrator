@@ -69,6 +69,7 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     | Availability zones | **None** (uncheck all boxes) |
     | Kubernetes version | accept the default |
     | Node size | accept the default |
+    | Scale method | **Manual** |
     | Node count | **1** |
 
 1. Click **Next: Node Pools >** and, on the **Node Pools** tab of the **Create Kubernetes cluster** blade, specify the following settings (leave others with their default values):
@@ -92,7 +93,7 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     | Network configuration | **kubenet** |
     | DNS name prefix | any valid, globally unique DNS host name |
 
-1. Click **Next: Integrations >**, on the **Integrations** tab of the **Create Kubernetes cluster** blade, set **Container monitoring** to **Disabled**, click **Review + create**, ensure that the validation passed and click Create.
+1. Click **Next: Integrations >**, on the **Integrations** tab of the **Create Kubernetes cluster** blade, set **Container monitoring** to **Disabled**, click **Review + create**, ensure that the validation passed and click **Create**.
 
     >**Note**: In production scenarios, you would want to enable monitoring. Monitoring is disabled in this case since it is not covered in the lab.
 
@@ -237,7 +238,9 @@ In this task, you will scale horizontally the number of pods and then number of 
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+
+>**Note**:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a long time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. In the Azure portal, open the **Bash** shell session within the **Cloud Shell** pane.
 

@@ -32,7 +32,8 @@ In this lab, you will:
 
 In this task, you will create an Azure disk resource by using an Azure Resource Manager template.
 
-1. Sign in to the [**Azure portal**](https://portal.azure.com).
+1. Sign in to the Azure portal:
+```https://portal.azure.com```
 
 1. In the Azure portal, search for and select **Resource groups**. 
 
@@ -61,8 +62,6 @@ In this task, you will create an Azure disk resource by using an Azure Resource 
 #### Task 2: Create an Azure managed disk by using an ARM template
 
 1. In the Azure portal, search for and select **Deploy a custom template**.
-
-1. Click **Template deployment (deploy using custom templates)** found under the **Marketplace** group.
 
 1. On the **Custom deployment** blade, click **Build your own template in the editor**.
 

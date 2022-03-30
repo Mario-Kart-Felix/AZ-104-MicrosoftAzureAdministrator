@@ -49,6 +49,8 @@ In this task, you will deploy four virtual machines into the same Azure region. 
 
 1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** and **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** into the Cloud Shell home directory.
 
+1. Edit the **Parameters** file you just uploaded and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
+
 1. From the Cloud Shell pane, run the following to create the first resource group that will be hosting the lab environment (replace the '[Azure_region]' placeholder with the name of an Azure region where you intend to deploy Azure virtual machines)(you can use the "(Get-AzLocation).Location" cmdlet to get the region list):
 
     ```powershell 
@@ -128,7 +130,7 @@ In this task, you will configure local peering between the virtual networks you 
 
 1. On the **az104-06-vnet01** virtual network blade, in the **Settings** section, click **Peerings** and then click **+ Add**.
 
-1. Add a peering with the following settings (leave others with their default values) and click Add:
+1. Add a peering with the following settings (leave others with their default values) and click **Add**:
 
     | Setting | Value |
     | --- | --- |
@@ -152,7 +154,7 @@ In this task, you will configure local peering between the virtual networks you 
 
 1. On the **az104-06-vnet01** virtual network blade, in the **Settings** section, click **Peerings** and then click **+ Add**.
 
-1. Add a peering with the following settings (leave others with their default values) and click Add:
+1. Add a peering with the following settings (leave others with their default values) and click **Add**:
 
     | Setting | Value |
     | --- | --- |
@@ -178,7 +180,7 @@ In this task, you will test transitivity of virtual network peering by using Net
 
 1. In the Azure portal, search for and select **Network Watcher**.
 
-1. On the **Network Watcher** blade, expand the listing of Azure regions and verify that the service is enabled in the Azure into which you deployed resources in the first task of this lab.
+1. On the **Network Watcher** blade, expand the listing of Azure regions and verify the service is enabled in region you are using. 
 
 1. On the **Network Watcher** blade, navigate to the **Connection troubleshoot**.
 
@@ -299,11 +301,11 @@ In this task, you will configure and test routing between the two spoke virtual 
 
    > **Note**: Wait for the route table to be created. This should take about 3 minutes.
 
-1. Back on the **Route tables** blade, click **Refresh** and then click **az104-06-rt23**.
+1. Click **Go to resource**.
 
 1. On the **az104-06-rt23** route table blade, in the **Settings** section, click **Routes**, and then click **+ Add**.
 
-1. Add a new route with the following settings (leave others with their default values):
+1. Add a new route with the following settings:
 
     | Setting | Value |
     | --- | --- |
@@ -341,7 +343,7 @@ In this task, you will configure and test routing between the two spoke virtual 
 
    > **Note**: Wait for the route table to be created. This should take about 3 minutes.
 
-1. Back on the **Route tables** blade, click **Refresh** and then click **az104-06-rt32**.
+1. Click **Go to resource**.
 
 1. On the **az104-06-rt32** route table blade, in the **Settings** section, click **Routes**, and then click **+ Add**.
 
@@ -394,22 +396,26 @@ In this task, you will implement an Azure Load Balancer in front of the two Azur
 
 1. In the Azure portal, search and select **Load balancers** and, on the **Load balancers** blade, click **+ Create**.
 
-1. Create a load balancer with the following settings (leave others with their default values):
+1. Create a load balancer with the following settings (leave others with their default values) then click **Next : Frontend IP configuration**:
 
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-06-rg1** |
+    | Resource group | **az104-06-rg1** |
     | Name | **az104-06-lb4** |
     | Region| name of the Azure region into which you deployed all other resources in this lab |
-    | Type | **Public** |
     | SKU | **Standard** |
+    | Type | **Public** |
+    
+1. On the **Frontend IP configuration** tab, click **Add a frontend IP configuration** and use the following setting before clicking **Add**.   
+     
+    | Setting | Value |
+    | --- | --- |
+    | Name | any unique name |
     | Public IP address | **Create new** |
     | Public IP address name | **az104-06-pip4** |
-    | Availability zone | **No Zone** |
-    | Add a public IPv6 address | **No** |
 
-1. Click Review and Create. Let validation occur, and hit Create to submit your deployment.
+1. Click **Review and Create**. Let validation occur, and hit **Create** to submit your deployment.
 
     > **Note**: Wait for the Azure load balancer to be provisioned. This should take about 2 minutes.
 
@@ -504,7 +510,7 @@ In this task, you will implement an Azure Application Gateway in front of the tw
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-06-rg1** |
+    | Resource group | **az104-06-rg1** |
     | Application gateway name | **az104-06-appgw5** |
     | Region | name of the Azure region into which you deployed all other resources in this lab |
     | Tier | **Standard V2** |
@@ -587,7 +593,9 @@ In this task, you will implement an Azure Application Gateway in front of the tw
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+
+>**Note**:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
 
